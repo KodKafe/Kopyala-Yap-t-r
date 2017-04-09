@@ -17,7 +17,7 @@ namespace Kopyala_Yapıştır
         {
             InitializeComponent();
         }
-        [DllImport("user32.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true)] //DllImport niteliği: Bu nitelik bir metodun .Net ortamında geliştirilmediğini belirtmek için kullanılır. .Net kütüphanesini değil de Windows API'lerini kullanabilmek için bu nitelik gereklidir. Ayrıca ilgili metodun dışarıdan alındığını belirtmek için extern anahtar sözcüğünü kullanırız. Bu nitelik System.Runtime.InteropServices isim alanında bulunur.
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AddClipboardFormatListener(IntPtr hwnd);
         private const int WM_CLIPBOARDUPDATE = 0x031D;
@@ -74,7 +74,7 @@ namespace Kopyala_Yapıştır
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AddClipboardFormatListener(this.Handle);
+            AddClipboardFormatListener(this.Handle); //Programımızı panoyu dinleyen uygulamalar listesine ekler
         }
 
     }
